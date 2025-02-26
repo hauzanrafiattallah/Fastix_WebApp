@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Seller extends Model
@@ -18,4 +19,9 @@ class Seller extends Model
         'slug',
         'photo',
     ];
+
+    public function tickets(): HasMany 
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }
